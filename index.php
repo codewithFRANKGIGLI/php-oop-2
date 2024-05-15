@@ -29,6 +29,7 @@ require_once './Models/productType.php';
             <?php
             $products = [];
 
+            // non so come dare gli stessi attributi del padre al figlio nelle prossime righe. lo lascio cosi e domani chiedo in classe
             $products[] = new Product("Cibo Umido", 9.99, "https://picsum.photos/200", new Category($name, $price, $image, "Gatto"), new ProductType($name, $price, $image, "Cibo"));
             $products[] = new Product("Cuccia MemoryFoam", 19.99, "https://picsum.photos/200", new Category($name, $price, $image, "Gatto"), new ProductType($name, $price, $image, "Cuccia"));
             $products[] = new Product("Osso di Cervo", 29.99, "https://picsum.photos/200", new Category($name, $price, $image, "Cane"), new ProductType($name, $price, $image, "Gioco"));    
