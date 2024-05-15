@@ -1,7 +1,6 @@
 <?php
 require_once './Models/product.php';
 require_once './Models/category.php';
-require_once './Models/productType.php';
 ?>
 
 
@@ -30,10 +29,11 @@ require_once './Models/productType.php';
             $products = [];
 
             // non so come dare gli stessi attributi del padre al figlio nelle prossime righe. lo lascio cosi e domani chiedo in classe
-            $products[] = new Product("Cibo Umido", 9.99, "https://picsum.photos/200", new Category($name, $price, $image, "Gatto"), new ProductType($name, $price, $image, "Cibo"));
-            $products[] = new Product("Cuccia MemoryFoam", 19.99, "https://picsum.photos/200", new Category($name, $price, $image, "Gatto"), new ProductType($name, $price, $image, "Cuccia"));
-            $products[] = new Product("Osso di Cervo", 29.99, "https://picsum.photos/200", new Category($name, $price, $image, "Cane"), new ProductType($name, $price, $image, "Gioco"));    
+            $products[] = new Category("Cibo Umido", 9.99, "https://picsum.photos/200", "Gatto", "Cibo");
+            $products[] = new Category("Cuccia MemoryFoam", 19.99, "https://picsum.photos/200", "Gatto", "Cuccia");
+            $products[] =  new Category("Osso di Cervo", 29.99, "https://picsum.photos/200", "Cane", "Gioco");
 
+            var_dump($products);
             foreach ($products as $product) {
             ?>
                 <div class="col-4">
@@ -41,7 +41,8 @@ require_once './Models/productType.php';
                         <img src="<?php echo $product->getImage(); ?>" class="card-img-top" alt="#">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $product->getName(); ?></h5>
-                            <p class="card-text"><?php echo $product->$productType->getProductTypeName(); ?></p>
+                            <p class="card-text"><?php echo $product->getanimal(); ?></p>
+                            <p class="card-text"><?php echo $product->getType(); ?></p>
                             <p class="card-text"><?php echo $product->getPrice(); ?></p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>

@@ -1,14 +1,21 @@
 <?php
 class Category extends Product {
-    private $categoryName;
+    private $animal;
+    private $type;
 
-    public function __construct($name, $price, $image, $categoryName) {
+    public function __construct($name, $price, $image, $animal, $type) {
         parent::__construct($name, $price, $image);
-        $this->categoryName = $categoryName;
+        $this->animal = $animal;
+        $this->type = $type;
+
     }
 
-    public function getCategoryName() {
-        return $this->categoryName;
+    public function getanimal() {
+        return $this->animal;
+    }
+
+    public function getType() {
+        return $this->type;
     }
 }
 ?>
