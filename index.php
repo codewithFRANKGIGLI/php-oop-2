@@ -22,25 +22,26 @@ require_once './Models/productType.php';
 <body>
 
     <!-- Stampiamo delle card contenenti i dettagli dei prodotti, come immagine, titolo, prezzo, 
-icona della categoria ed il tipo di articolo che si sta visualizzando (prodotto, cibo, gioco, cuccia). -->
+    icona della categoria ed il tipo di articolo che si sta visualizzando (prodotto, cibo, gioco, cuccia). -->
 
     <div class="container py-5">
         <div class="row">
             <?php
             $products = [];
 
-            $products[] = new Product("https://picsum.photos/200", "Cibo Umido", 9.99, new Category("Gatto", ""), new ProductType("Cibo", "Bla Bla Bla Bla Bla "));
-            $products[] = new Product("https://picsum.photos/200", "CatGame", 19.99,  new Category("Gatto", ""), new ProductType("Gioco", "Bla Bla Bla Bla "));
-            $products[] = new Product("https://picsum.photos/200", "CucciaDog", 29.99, new Category("Cane", ""), new ProductType("Cuccia", "Bla Bla "));
+            $products[] = new Product("Cibo Umido", 9.99, "https://picsum.photos/200", new Category($name, $price, $image, "Gatto"), new ProductType($name, $price, $image, "Cibo"));
+            $products[] = new Product("Cuccia MemoryFoam", 19.99, "https://picsum.photos/200", new Category($name, $price, $image, "Gatto"), new ProductType($name, $price, $image, "Cuccia"));
+            $products[] = new Product("Osso di Cervo", 29.99, "https://picsum.photos/200", new Category($name, $price, $image, "Cane"), new ProductType($name, $price, $image, "Gioco"));    
 
             foreach ($products as $product) {
             ?>
                 <div class="col-4">
                     <div class="card p-2" style="width: 18rem;">
-                        <img src="<?php echo $product->image; ?>" class="card-img-top" alt="#">
+                        <img src="<?php echo $product->getImage(); ?>" class="card-img-top" alt="#">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $product->title; ?></h5>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam in voluptas at cupiditate impedit, doloremque commodi molestias, eos eveniet maiores quas totam. Eius reprehenderit voluptas maiores commodi voluptatum rerum consequuntur!.</p>
+                            <h5 class="card-title"><?php echo $product->getName(); ?></h5>
+                            <p class="card-text"><?php echo $product->$productType->getProductTypeName(); ?></p>
+                            <p class="card-text"><?php echo $product->getPrice(); ?></p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
@@ -51,7 +52,6 @@ icona della categoria ed il tipo di articolo che si sta visualizzando (prodotto,
         </div>
     </div>
 
-    </div>
 
     <!-------Script links:------->
     <!-- Bootstrap: -->

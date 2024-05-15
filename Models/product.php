@@ -1,43 +1,25 @@
 <?php
 class Product {
-    public $image;
-    public $title;
+    private $name;
     private $price;
-    private $category; // identifica se cane o gatto
-    private $type; // identifica se è cibo, gioco o cuccia, etc
+    private $image;
 
-    public function __construct($image, $title, $price, $category, $type) {
-        $this->image = $image;
-        $this->title = $title;
+    public function __construct($name, $price, $image) {
+        $this->name = $name;
         $this->price = $price;
-        $this->category = $category;
-        $this->type = $type;
+        $this->image = $image;
     }
 
+    public function getName() {
+        return $this->name;
+    }
 
     public function getPrice() {
         return $this->price;
     }
 
-    public function getCategory() {
-        return $this->category;
-    }
-
-    public function getType() {
-        return $this->type;
-    }
-
-
-    public function setPrice($price) {
-        $this->price = $price;
-    }
-
-    public function setCategory($category) {
-        $this->category = $category;
-    }
-
-    public function setType($type) {
-        $this->type = $type;
+    public function getImage() {
+        return $this->image;
     }
 }
 ?>

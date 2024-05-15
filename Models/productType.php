@@ -1,27 +1,14 @@
 <?php
-class ProductType {
-    private $name;
-    private $description;
+class ProductType extends Product {
+    private $productTypeName;
 
-    public function __construct($name, $description) {
-        $this->name = $name;
-        $this->description = $description;
+    public function __construct($name, $price, $image, $productTypeName) {
+        parent::__construct($name, $price, $image);
+        $this->productTypeName = $productTypeName;
     }
 
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getDescription() {
-        return $this->description;
-    }
-
-    public function setName($name) {
-        $this->name = $name;
-    }
-
-    public function setDescription($description) {
-        $this->description = $description;
+    public function getProductTypeName() {
+        return $this->productTypeName;
     }
 }
 ?>

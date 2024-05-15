@@ -1,27 +1,14 @@
 <?php
-class Category {
-    private $name;
-    private $icon;
+class Category extends Product {
+    private $categoryName;
 
-    public function __construct($name, $icon) {
-        $this->name = $name;
-        $this->icon = $icon;
+    public function __construct($name, $price, $image, $categoryName) {
+        parent::__construct($name, $price, $image);
+        $this->categoryName = $categoryName;
     }
 
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getIcon() {
-        return $this->icon;
-    }
-
-    public function setName($name) {
-        $this->name = $name;
-    }
-
-    public function setIcon($icon) {
-        $this->icon = $icon;
+    public function getCategoryName() {
+        return $this->categoryName;
     }
 }
 ?>
