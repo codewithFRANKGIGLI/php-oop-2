@@ -28,12 +28,15 @@ require_once './Models/category.php';
             <?php
             $products = [];
 
-            // non so come dare gli stessi attributi del padre al figlio nelle prossime righe. lo lascio cosi e domani chiedo in classe
-            $products[] = new Category("Cibo Umido", 9.99, "https://picsum.photos/200", "Gatto", "Cibo");
-            $products[] = new Category("Cuccia MemoryFoam", 19.99, "https://picsum.photos/200", "Gatto", "Cuccia");
-            $products[] =  new Category("Osso di Cervo", 29.99, "https://picsum.photos/200", "Cane", "Gioco");
+            $products[0] = new Category("Cibo Umido", 9.99, "https://picsum.photos/200", "Gatto");
+            $products[1] = new Category("Cuccia MemoryFoam", 19.99, "https://picsum.photos/200", "Gatto", "Cuccia");
+            $products[2] =  new Category("Osso di Cervo", 29.99, "https://picsum.photos/200", "Cane", "Gioco");
+            $products[0]->setProductType("Cibo");
+            $products[1]->setProductType("Cuccia");
+            $products[2]->setProductType("Gioco");
 
             var_dump($products);
+
             foreach ($products as $product) {
             ?>
                 <div class="col-4">
@@ -41,9 +44,9 @@ require_once './Models/category.php';
                         <img src="<?php echo $product->getImage(); ?>" class="card-img-top" alt="#">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $product->getName(); ?></h5>
-                            <p class="card-text"><?php echo $product->getanimal(); ?></p>
-                            <p class="card-text"><?php echo $product->getType(); ?></p>
-                            <p class="card-text"><?php echo $product->getPrice(); ?></p>
+                            <p class="card-text">Prodotto per: <?php echo $product->getanimal(); ?></p>
+                            <p class="card-text">Tipologia: <?php echo $product->getProductType(); ?></p>
+                            <p class="card-text">Prezzo: <?php echo $product->getPrice(); ?> €</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>

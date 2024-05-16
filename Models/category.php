@@ -1,12 +1,12 @@
 <?php
+require_once __DIR__ . '/../Traits/type.php';
 class Category extends Product {
     private $animal;
-    private $type;
+    use Type;
 
-    public function __construct($name, $price, $image, $animal, $type) {
+    public function __construct($name, $price, $image, $animal) {
         parent::__construct($name, $price, $image);
         $this->animal = $animal;
-        $this->type = $type;
 
     }
 
@@ -14,8 +14,5 @@ class Category extends Product {
         return $this->animal;
     }
 
-    public function getType() {
-        return $this->type;
-    }
 }
 ?>
